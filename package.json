@@ -1,0 +1,15 @@
+{
+    "name": "com.snowdrama.extensionutils",
+    "version": "0.1.0",
+    "description": "",
+    "displayName": "",
+    "unity":"2020.1",
+    "author": {
+        "name": "John 'Snowdrama' Close",
+        "email": "SnowdramaGames@gmail.com",
+        "url": "http://www.snowdrama.net"
+    },
+    "dependencies": {
+        "com.unity.addressables": "1.18.19"
+    }
+}
