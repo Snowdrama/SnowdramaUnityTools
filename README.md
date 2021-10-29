@@ -3,6 +3,19 @@ Tools used by me!
 
 This is a package of all the tools I have created and use in unity from UI helpers, to springs, to scriptable objects.
 
+# Requirements & Disclaimer
+In theory it works with earlier versions but I have tested against 2020.3.19f1(current LTS version) but I have it set to work with 2019.1 and over so there may be issues if you're using 2019. There is also a dependency on Addressables since I use Addressables in some of my things.  
+
+# Installation
+* To install this package, use the Unity Package manager and click the + in the upper left.
+![image](https://user-images.githubusercontent.com/1271916/139389113-88e7b032-0f93-42b2-ad80-10700baca435.png)
+* Then use the https git URL(for example: https://github.com/Snowdrama/SnowdramaUnityTools.git)
+* That should be it, wait for it to install and refresh and you're good to go!
+
+# Samples
+There's a few samples available for the things I think are most likely to be used, specifcially the UI Tools, Springs, and Timers(Menu Router coming soon)
+![image](https://user-images.githubusercontent.com/1271916/139389332-5703d3ba-c155-471b-8bb4-f4110a5fa4a4.png)
+
 # Overview Of Tools
 * Attribute Fields
     * useful attribute fields for serialized fields like [EditorReadOnly], [SortingLayer], and [Password] attributes.
@@ -26,6 +39,3 @@ This is a package of all the tools I have created and use in unity from UI helpe
     * Simple Timer and Itterator tools for delayed execution without coroutines using callbacks
 * UI Tools 
     * A series of tools to help manage layouts by calcualting the size for child objects.
-
-# Samples
-There's a few samples available for the things I think are most likely to be used, specifcially the UI Tools, Springs, and Timers(Menu Router coming soon)
