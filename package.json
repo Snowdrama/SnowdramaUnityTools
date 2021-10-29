@@ -12,5 +12,17 @@
   "dependencies": {
     "com.unity.addressables": "1.18.19"
   },
-  "type": "utility"
+  "type": "utility",
+  "samples": [
+    {
+        "displayName": "UI Examples",
+        "description": "Contains exmamples for the UI Tools",
+        "path": "Samples~/UIGridExamples"
+    },
+    {
+        "displayName": "Timer And Spring Examples",
+        "description": "Contains exmamples for using springs and timer tools",
+        "path": "Samples~/TimerAndSpringExamples"
+    }
+  ]
 }
