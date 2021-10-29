@@ -8,7 +8,7 @@ namespace Snowdrama.Spring
     {
         private SpringConfiguration _spring;
         private SpringState _state;
-        public Spring(float initialValue, SpringObject springObject)
+        public Spring(float initialValue, SpringConfigurationObject springObject)
         {
             _spring = springObject.GetConfiguration();
             _state = new SpringState(initialValue, initialValue, 0f);
@@ -56,7 +56,7 @@ namespace Snowdrama.Spring
             _state = state;
         }
 
-        public void SetNewSpring(SpringObject spring)
+        public void SetNewSpring(SpringConfigurationObject spring)
         {
             var config = spring.GetConfiguration();
             _spring = config;

@@ -1,0 +1,17 @@
+{
+    "name": "com.snowdrama.examplescripts",
+    "rootNamespace": "",
+    "references": [
+        "GUID:2e881c73d9307934b88227e780d43b65",
+        "GUID:0d5f8d4546ec697469b7fd832540cc85"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

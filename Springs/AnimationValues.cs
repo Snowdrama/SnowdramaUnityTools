@@ -29,7 +29,7 @@ namespace Snowdrama.Spring
             _trigger = new List<AnimationTrigger>(capacity);
         }
 
-        public int Add(float initialValue, SpringObject spring)
+        public int Add(float initialValue, SpringConfigurationObject spring)
         {
             var id = Count;
             var config = spring.GetConfiguration();
@@ -107,7 +107,7 @@ namespace Snowdrama.Spring
             _states[id] = state;
         }
 
-        public void UpdateFloatSpring(int id, SpringObject spring)
+        public void UpdateFloatSpring(int id, SpringConfigurationObject spring)
         {
             var config = spring.GetConfiguration();
             _springs[id] = config;

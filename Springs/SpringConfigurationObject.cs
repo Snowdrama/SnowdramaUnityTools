@@ -9,7 +9,7 @@ using UnityEngine.Events;
 namespace Snowdrama.Spring
 {
     [CreateAssetMenu(fileName = "Spring", menuName = "Snowdrama/Springs/SpringConfigurationObject", order = 1)]
-    public class SpringObject : ScriptableObject
+    public class SpringConfigurationObject : ScriptableObject
     {
         public float Mass = 1f;
         public float Tension = 170f;

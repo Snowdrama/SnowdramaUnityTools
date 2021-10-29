@@ -6,7 +6,7 @@ namespace Snowdrama.Spring
 {
     public class SpringPosition : MonoBehaviour
     {
-        public SpringObject springObject;
+        public SpringConfigurationObject springObject;
         public GameObject targetPosition;
         public Vector3 offset;
         Spring springX;
