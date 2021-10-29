@@ -8,12 +8,14 @@ In theory it works with earlier versions but I have tested against 2020.3.19f1(c
 
 # Installation
 * To install this package, use the Unity Package manager and click the + in the upper left.
+
 ![image](https://user-images.githubusercontent.com/1271916/139389113-88e7b032-0f93-42b2-ad80-10700baca435.png)
 * Then use the https git URL(for example: https://github.com/Snowdrama/SnowdramaUnityTools.git)
 * That should be it, wait for it to install and refresh and you're good to go!
 
 # Samples
 There's a few samples available for the things I think are most likely to be used, specifcially the UI Tools, Springs, and Timers(Menu Router coming soon)
+
 ![image](https://user-images.githubusercontent.com/1271916/139389332-5703d3ba-c155-471b-8bb4-f4110a5fa4a4.png)
 
 # Overview Of Tools
