@@ -1,15 +1,16 @@
 {
-    "name": "com.snowdrama.extensionutils",
-    "version": "0.1.0",
-    "description": "",
-    "displayName": "",
-    "unity":"2020.1",
-    "author": {
-        "name": "John 'Snowdrama' Close",
-        "email": "SnowdramaGames@gmail.com",
-        "url": "http://www.snowdrama.net"
-    },
-    "dependencies": {
-        "com.unity.addressables": "1.18.19"
-    }
+  "name": "com.snowdrama.extensionutils",
+  "version": "0.1.1",
+  "description": "This is a package of all the tools I have created and use in unity from UI helpers, to springs, to scriptable objects.\n\nAttribute Fields - useful attribute fields for serialized fields like [EditorReadOnly], [SortingLayer], and [Password] attributes.\nEditor - Some tools I use to do things like quickly spliting large prefabs into sub prefabs, and generating materials from a folder of textures.\nExtensions - A set of extension methods that add simple functionality like checking if a layer mask contains a layer, or getting colors from gradients\nFileTools - Tools for reading and writing to files on disk(Currently JSON mostly)\nHashNoise - A small RNG that uses noise to produce fast and good randomness. \nOption Tools - A series of tools used for managing game settings using PlayerPrefs.\nScriptableObjectExtension - ScriptableObject containers for primitive types used for sharing decoupled runtime data \nSimpleTools - Basic debugging tools like, simple sphere and box gizmos.\nTimer Tools - Simple Timer and Itterator tools for delayed execution without coroutines using callbacks\nUI Tools - A series of tools to help manage layouts by calcualting the size for child objects.",
+  "displayName": "Snowdrama Unity Extenstion Tools",
+  "unity": "2020.1",
+  "author": {
+    "name": "John 'Snowdrama' Close",
+    "email": "SnowdramaGames@gmail.com",
+    "url": "http://www.snowdrama.net"
+  },
+  "dependencies": {
+    "com.unity.addressables": "1.18.19"
+  },
+  "type": "utility"
 }

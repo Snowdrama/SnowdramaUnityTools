@@ -1,3 +1,14 @@
 {
-	"name": "com.snowdrama.hashnoise"
+    "name": "com.snowdrama.hashnoise",
+    "rootNamespace": "Snowdrama",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
