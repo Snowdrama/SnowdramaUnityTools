@@ -3,40 +3,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[Serializable]
-public class Vector2Reference
+namespace Snow.ScriptableObjectExtension
 {
-    public bool UseConstant = true;
-    public Vector2 ConstantValue;
-    public Vector2Variable Variable;
-
-    public Vector2Reference()
-    { }
-
-    public Vector2Reference(Vector2 value)
+    [Serializable]
+    public class Vector2Reference
     {
-        UseConstant = true;
-        ConstantValue = value;
-    }
+        public bool UseConstant = true;
+        public Vector2 ConstantValue;
+        public Vector2Variable Variable;
 
-    public Vector2 Value
-    {
-        get { return UseConstant ? ConstantValue : Variable.Value; }
-        set
+        public Vector2Reference()
+        { }
+
+        public Vector2Reference(Vector2 value)
         {
-            if (UseConstant)
+            UseConstant = true;
+            ConstantValue = value;
+        }
+
+        public Vector2 Value
+        {
+            get { return UseConstant ? ConstantValue : Variable.Value; }
+            set
             {
-                ConstantValue = value;
-            }
-            else
-            {
-                Variable.Value = value;
+                if (UseConstant)
+                {
+                    ConstantValue = value;
+                }
+                else
+                {
+                    Variable.Value = value;
+                }
             }
         }
-    }
 
-    public static implicit operator Vector2(Vector2Reference reference)
-    {
-        return reference.Value;
+        public static implicit operator Vector2(Vector2Reference reference)
+        {
+            return reference.Value;
+        }
     }
 }

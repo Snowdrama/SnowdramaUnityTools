@@ -5,6 +5,17 @@ using UnityEngine;
 
 public static class SnowUtils
 {
+
+    public static void RunOnHasComponent<T>(this GameObject go, Action action)
+    {
+        var component = go.GetComponent<T>();
+        if(component != null)
+        {
+            action?.Invoke();
+        }
+    }
+
+
     public static GameObject Instantiate(this GameObject go, Vector3 position, Quaternion rotation = new Quaternion(), GameObject parent = null)
     {
         if(go != null)

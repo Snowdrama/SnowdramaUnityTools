@@ -3,40 +3,43 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-[Serializable]
-public class DoubleReference
+namespace Snow.ScriptableObjectExtension
 {
-    public bool UseConstant = true;
-    public double ConstantValue;
-    public DoubleVariable Variable;
-
-    public DoubleReference()
-    { }
-
-    public DoubleReference(double value)
+    [Serializable]
+    public class DoubleReference
     {
-        UseConstant = true;
-        ConstantValue = value;
-    }
+        public bool UseConstant = true;
+        public double ConstantValue;
+        public DoubleVariable Variable;
 
-    public double Value
-    {
-        get { return UseConstant ? ConstantValue : Variable.Value; }
-        set
+        public DoubleReference()
+        { }
+
+        public DoubleReference(double value)
         {
-            if (UseConstant)
+            UseConstant = true;
+            ConstantValue = value;
+        }
+
+        public double Value
+        {
+            get { return UseConstant ? ConstantValue : Variable.Value; }
+            set
             {
-                ConstantValue = value;
-            }
-            else
-            {
-                Variable.Value = value;
+                if (UseConstant)
+                {
+                    ConstantValue = value;
+                }
+                else
+                {
+                    Variable.Value = value;
+                }
             }
         }
-    }
 
-    public static implicit operator double(DoubleReference reference)
-    {
-        return reference.Value;
+        public static implicit operator double(DoubleReference reference)
+        {
+            return reference.Value;
+        }
     }
 }

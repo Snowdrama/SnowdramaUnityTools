@@ -2,41 +2,44 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SphereGizmo : MonoBehaviour
+namespace Snow.SimpleTools
 {
-    [SerializeField] Color color = Color.cyan;
-    [SerializeField] float radius = 0.5f;
-    [SerializeField] bool wireSphere = false;
-    [SerializeField] bool alwaysShow = true;
-
-    private void OnDrawGizmosSelected()
+    public class SphereGizmo : MonoBehaviour
     {
-        if (!alwaysShow)
+        [SerializeField] Color color = Color.cyan;
+        [SerializeField] float radius = 0.5f;
+        [SerializeField] bool wireSphere = false;
+        [SerializeField] bool alwaysShow = true;
+
+        private void OnDrawGizmosSelected()
         {
-            Gizmos.color = color;
-            if (wireSphere)
+            if (!alwaysShow)
             {
-                Gizmos.DrawWireSphere(this.transform.position, radius);
-            }
-            else
-            {
-                Gizmos.DrawSphere(this.transform.position, radius);
+                Gizmos.color = color;
+                if (wireSphere)
+                {
+                    Gizmos.DrawWireSphere(transform.position, radius);
+                }
+                else
+                {
+                    Gizmos.DrawSphere(transform.position, radius);
+                }
             }
         }
-    }
 
-    private void OnDrawGizmos()
-    {
-        if(alwaysShow)
+        private void OnDrawGizmos()
         {
-            Gizmos.color = color;
-            if (wireSphere)
+            if (alwaysShow)
             {
-                Gizmos.DrawWireSphere(this.transform.position, radius);
-            }
-            else
-            {
-                Gizmos.DrawSphere(this.transform.position, radius);
+                Gizmos.color = color;
+                if (wireSphere)
+                {
+                    Gizmos.DrawWireSphere(transform.position, radius);
+                }
+                else
+                {
+                    Gizmos.DrawSphere(transform.position, radius);
+                }
             }
         }
     }

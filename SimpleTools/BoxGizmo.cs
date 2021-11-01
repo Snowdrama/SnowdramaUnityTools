@@ -2,22 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoxGizmo : MonoBehaviour
+namespace Snow.SimpleTools
 {
-    [SerializeField] Color color = Color.cyan;
-    [SerializeField] Vector3 size = new Vector3(0.5f, 0.5f, 0.5f);
-    [SerializeField] bool wireBox = false;
-
-    private void OnDrawGizmos()
+    public class BoxGizmo : MonoBehaviour
     {
-        Gizmos.color = color;
-        if (wireBox)
+        [SerializeField] Color color = Color.cyan;
+        [SerializeField] Vector3 size = new Vector3(0.5f, 0.5f, 0.5f);
+        [SerializeField] bool wireBox = false;
+
+        private void OnDrawGizmos()
         {
-            Gizmos.DrawWireCube(this.transform.position, size);
-        }
-        else
-        {
-            Gizmos.DrawCube(this.transform.position, size);
+            Gizmos.color = color;
+            if (wireBox)
+            {
+                Gizmos.DrawWireCube(transform.position, size);
+            }
+            else
+            {
+                Gizmos.DrawCube(transform.position, size);
+            }
         }
     }
 }

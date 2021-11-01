@@ -2,25 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MusicShuffle : MonoBehaviour
+namespace Snow.SimpleTools
 {
-    public List<AudioClip> songs;
-    AudioSource source;
-    // Start is called before the first frame update
-    void Start()
+    public class MusicShuffle : MonoBehaviour
     {
-        source = this.GetComponent<AudioSource>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (!source.isPlaying)
+        public List<AudioClip> songs;
+        AudioSource source;
+        // Start is called before the first frame update
+        void Start()
         {
-            Debug.Log("Starting Song");
-            //the song ended, so we can start the next one
-            source.clip = songs[Random.Range(0, songs.Count)];
-            source.Play();
+            source = GetComponent<AudioSource>();
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            if (!source.isPlaying)
+            {
+                Debug.Log("Starting Song");
+                //the song ended, so we can start the next one
+                source.clip = songs[Random.Range(0, songs.Count)];
+                source.Play();
+            }
         }
     }
 }

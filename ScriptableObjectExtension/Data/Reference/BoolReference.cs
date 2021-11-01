@@ -3,40 +3,43 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-[Serializable]
-public class BoolReference
+namespace Snow.ScriptableObjectExtension
 {
-    public bool UseConstant = true;
-    public bool ConstantValue;
-    public BoolVariable Variable;
-
-    public BoolReference()
-    { }
-
-    public BoolReference(bool value)
+    [Serializable]
+    public class BoolReference
     {
-        UseConstant = true;
-        ConstantValue = value;
-    }
+        public bool UseConstant = true;
+        public bool ConstantValue;
+        public BoolVariable Variable;
 
-    public bool Value
-    {
-        get { return UseConstant ? ConstantValue : Variable.Value; }
-        set
+        public BoolReference()
+        { }
+
+        public BoolReference(bool value)
         {
-            if (UseConstant)
+            UseConstant = true;
+            ConstantValue = value;
+        }
+
+        public bool Value
+        {
+            get { return UseConstant ? ConstantValue : Variable.Value; }
+            set
             {
-                ConstantValue = value;
-            }
-            else
-            {
-                Variable.Value = value;
+                if (UseConstant)
+                {
+                    ConstantValue = value;
+                }
+                else
+                {
+                    Variable.Value = value;
+                }
             }
         }
-    }
 
-    public static implicit operator bool(BoolReference reference)
-    {
-        return reference.Value;
+        public static implicit operator bool(BoolReference reference)
+        {
+            return reference.Value;
+        }
     }
 }

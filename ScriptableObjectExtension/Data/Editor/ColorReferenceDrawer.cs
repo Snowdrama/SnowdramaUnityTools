@@ -1,12 +1,12 @@
 using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using UnityEngine;
-    using UnityEditor;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEditor;
 
-    namespace Snow.ScriptableObjectExtension
-    {
-        [CustomPropertyDrawer(typeof(ColorReference))]
+namespace Snow.ScriptableObjectExtension
+{
+    [CustomPropertyDrawer(typeof(ColorReference))]
         public class ColorReferenceDrawer : PropertyDrawer
         {
             /// <summary>

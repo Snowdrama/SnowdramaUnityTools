@@ -3,40 +3,43 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-[Serializable]
-public class StringReference
+namespace Snow.ScriptableObjectExtension
 {
-    public bool UseConstant = true;
-    public string ConstantValue;
-    public StringVariable Variable;
-
-    public StringReference()
-    { }
-
-    public StringReference(string value)
+    [Serializable]
+    public class StringReference
     {
-        UseConstant = true;
-        ConstantValue = value;
-    }
+        public bool UseConstant = true;
+        public string ConstantValue;
+        public StringVariable Variable;
 
-    public string Value
-    {
-        get { return UseConstant ? ConstantValue : Variable.Value; }
-        set
+        public StringReference()
+        { }
+
+        public StringReference(string value)
         {
-            if (UseConstant)
+            UseConstant = true;
+            ConstantValue = value;
+        }
+
+        public string Value
+        {
+            get { return UseConstant ? ConstantValue : Variable.Value; }
+            set
             {
-                ConstantValue = value;
-            }
-            else
-            {
-                Variable.Value = value;
+                if (UseConstant)
+                {
+                    ConstantValue = value;
+                }
+                else
+                {
+                    Variable.Value = value;
+                }
             }
         }
-    }
 
-    public static implicit operator string(StringReference reference)
-    {
-        return reference.Value;
+        public static implicit operator string(StringReference reference)
+        {
+            return reference.Value;
+        }
     }
 }
