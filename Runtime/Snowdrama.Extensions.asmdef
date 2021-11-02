@@ -1,6 +1,6 @@
 {
-    "name": "com.snowdrama.unity-tools",
-    "rootNamespace": "Snowdrama",
+    "name": "Snowdrama.Extensions",
+    "rootNamespace": "",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
