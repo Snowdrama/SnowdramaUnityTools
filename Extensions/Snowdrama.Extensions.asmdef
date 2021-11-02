@@ -1,5 +1,5 @@
 {
-    "name": "com.snowdrama.hashnoise",
+    "name": "Snowdrama.Extensions",
     "rootNamespace": "Snowdrama",
     "references": [],
     "includePlatforms": [],
