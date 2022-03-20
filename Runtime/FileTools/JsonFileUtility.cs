@@ -6,17 +6,25 @@ using UnityEngine;
 
 public class JsonFileUtility {
 
-/*
-██╗      ██████╗  █████╗ ██████╗      █████╗ ███████╗    ██████╗ ███████╗███████╗ ██████╗ ██╗   ██╗██████╗  ██████╗███████╗
-██║     ██╔═══██╗██╔══██╗██╔══██╗    ██╔══██╗██╔════╝    ██╔══██╗██╔════╝██╔════╝██╔═══██╗██║   ██║██╔══██╗██╔════╝██╔════╝
-██║     ██║   ██║███████║██║  ██║    ███████║███████╗    ██████╔╝█████╗  ███████╗██║   ██║██║   ██║██████╔╝██║     █████╗
-██║     ██║   ██║██╔══██║██║  ██║    ██╔══██║╚════██║    ██╔══██╗██╔══╝  ╚════██║██║   ██║██║   ██║██╔══██╗██║     ██╔══╝
-███████╗╚██████╔╝██║  ██║██████╔╝    ██║  ██║███████║    ██║  ██║███████╗███████║╚██████╔╝╚██████╔╝██║  ██║╚██████╗███████╗
-╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚═════╝     ╚═╝  ╚═╝╚══════╝    ╚═╝  ╚═╝╚══════╝╚══════╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝ ╚═════╝╚══════╝
+	/*
+	██╗      ██████╗  █████╗ ██████╗      █████╗ ███████╗    ██████╗ ███████╗███████╗ ██████╗ ██╗   ██╗██████╗  ██████╗███████╗
+	██║     ██╔═══██╗██╔══██╗██╔══██╗    ██╔══██╗██╔════╝    ██╔══██╗██╔════╝██╔════╝██╔═══██╗██║   ██║██╔══██╗██╔════╝██╔════╝
+	██║     ██║   ██║███████║██║  ██║    ███████║███████╗    ██████╔╝█████╗  ███████╗██║   ██║██║   ██║██████╔╝██║     █████╗
+	██║     ██║   ██║██╔══██║██║  ██║    ██╔══██║╚════██║    ██╔══██╗██╔══╝  ╚════██║██║   ██║██║   ██║██╔══██╗██║     ██╔══╝
+	███████╗╚██████╔╝██║  ██║██████╔╝    ██║  ██║███████║    ██║  ██║███████╗███████║╚██████╔╝╚██████╔╝██║  ██║╚██████╗███████╗
+	╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚═════╝     ╚═╝  ╚═╝╚══════╝    ╚═╝  ╚═╝╚══════╝╚══════╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝ ╚═════╝╚══════╝
 
-*/
+	*/
 
-	public static bool LoadJsonAsResource(string path, string filename, ref string res){
+
+	/// <summary>
+	/// Load from a file in the Resources folder. 
+	/// </summary>
+	/// <param name="path">Path relative to Resources folder</param>
+	/// <param name="filename">The file name</param>
+	/// <param name="res">the variable to put the string</param>
+	/// <returns>A bool representing successful loading of the file</returns>
+	public static bool LoadStringFromResources(string path, string filename, ref string res){
 		string jsonFilePath = path + "/" + filename.Replace(".json", "");
 		TextAsset loadedJsonfile = Resources.Load<TextAsset>(jsonFilePath);
 		if(loadedJsonfile == null){
@@ -24,12 +32,6 @@ public class JsonFileUtility {
 		}
 		res = loadedJsonfile.text;
 		return true;
-	}
-
-	public static string LoadJsonAsResource(string path, string filename){
-		string jsonFilePath = path + "/" + filename.Replace(".json", "");
-		TextAsset loadedJsonfile = Resources.Load<TextAsset>(jsonFilePath);
-		return loadedJsonfile.text;
 	}
 
 /*
@@ -41,7 +43,15 @@ public class JsonFileUtility {
 ╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚═════╝     ╚═╝  ╚═╝╚══════╝    ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚══════╝
 
 */
-	public static bool LoadJsonAsExternalResource(string path, string filename, ref string res){
+
+	/// <summary>
+	/// Load a string from a file in the Application.persistentDataPath
+	/// </summary>
+	/// <param name="path">Path relative to Application.persistentDataPath</param>
+	/// <param name="filename">The file name</param>
+	/// <param name="res">the variable to put the string</param>
+	/// <returns>A bool representing successful loading of the file</returns>
+	public static bool LoadStringFromFile(string path, string filename, ref string res){
 		string filePath = Application.persistentDataPath + "/" + path + "/" + filename;
 		//Debug.LogWarning("Read Data from" + filePath);
 		if(!System.IO.File.Exists(filePath)){
@@ -62,16 +72,24 @@ public class JsonFileUtility {
 		return true;
 	}
 
-/*
-██╗    ██╗██████╗ ██╗████████╗███████╗     █████╗ ███████╗    ███████╗██╗  ██╗████████╗███████╗██████╗ ███╗   ██╗ █████╗ ██╗
-██║    ██║██╔══██╗██║╚══██╔══╝██╔════╝    ██╔══██╗██╔════╝    ██╔════╝╚██╗██╔╝╚══██╔══╝██╔════╝██╔══██╗████╗  ██║██╔══██╗██║
-██║ █╗ ██║██████╔╝██║   ██║   █████╗      ███████║███████╗    █████╗   ╚███╔╝    ██║   █████╗  ██████╔╝██╔██╗ ██║███████║██║
-██║███╗██║██╔══██╗██║   ██║   ██╔══╝      ██╔══██║╚════██║    ██╔══╝   ██╔██╗    ██║   ██╔══╝  ██╔══██╗██║╚██╗██║██╔══██║██║
-╚███╔███╔╝██║  ██║██║   ██║   ███████╗    ██║  ██║███████║    ███████╗██╔╝ ██╗   ██║   ███████╗██║  ██║██║ ╚████║██║  ██║███████╗
- ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝   ╚═╝   ╚══════╝    ╚═╝  ╚═╝╚══════╝    ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚══════╝
+	/*
+	██╗    ██╗██████╗ ██╗████████╗███████╗     █████╗ ███████╗    ███████╗██╗  ██╗████████╗███████╗██████╗ ███╗   ██╗ █████╗ ██╗
+	██║    ██║██╔══██╗██║╚══██╔══╝██╔════╝    ██╔══██╗██╔════╝    ██╔════╝╚██╗██╔╝╚══██╔══╝██╔════╝██╔══██╗████╗  ██║██╔══██╗██║
+	██║ █╗ ██║██████╔╝██║   ██║   █████╗      ███████║███████╗    █████╗   ╚███╔╝    ██║   █████╗  ██████╔╝██╔██╗ ██║███████║██║
+	██║███╗██║██╔══██╗██║   ██║   ██╔══╝      ██╔══██║╚════██║    ██╔══╝   ██╔██╗    ██║   ██╔══╝  ██╔══██╗██║╚██╗██║██╔══██║██║
+	╚███╔███╔╝██║  ██║██║   ██║   ███████╗    ██║  ██║███████║    ███████╗██╔╝ ██╗   ██║   ███████╗██║  ██║██║ ╚████║██║  ██║███████╗
+	 ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝   ╚═╝   ╚══════╝    ╚═╝  ╚═╝╚══════╝    ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚══════╝
 
-*/
-	public static void WriteJsonToExternalResource(string path, string filename, string content){
+	*/
+
+	/// <summary>
+	/// Write json to a file relative to Application.persistentDataPath
+	/// </summary>
+	/// <param name="path">Path relative to Application.persistentDataPath</param>
+	/// <param name="filename">The file name</param>
+	/// <param name="content">The string to write to the file</param>
+	/// <returns></returns>
+	public static void WriteJsonToFile(string path, string filename, string content){
 		string directoryPath = Application.persistentDataPath + "/" + path;
 		string filePath = directoryPath + "/" + filename;
 		//Debug.LogFormat("Writing to path {0}", filePath);

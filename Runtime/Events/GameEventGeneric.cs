@@ -1,25 +1,25 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "GameEvent", menuName = "GameEvents/GameEvent")]
-public class GameEvent : ScriptableObject
+public class GameEvent<T>
 {
-    public Action OnEvent;
+    public Action<T> OnEvent;
 
-    public void RegisterEvent(Action e)
+    public void RegisterEvent(Action<T> e)
     {
         OnEvent += e;
     }
 
-    public void UnregisterEvent(Action e)
+    public void UnregisterEvent(Action<T> e)
     {
         OnEvent -= e;
     }
 
-    public void Invoke()
+    public void Invoke(T data)
     {
-        OnEvent?.Invoke();
+        OnEvent?.Invoke(data);
     }
 }
