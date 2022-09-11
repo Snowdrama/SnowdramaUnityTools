@@ -1,8 +1,20 @@
 # Snowdrama's Unity Tools
 Tools used by me!
-![ykElFpTHom](https://user-images.githubusercontent.com/1271916/139389738-85ce0655-9dbe-46eb-8d38-de1ebcc34131.gif)
 
-This is a package of all the tools I have created and use in unity from UI helpers, to springs, to scriptable objects.
+This is a package of tools I have created and use in unity. This is kinda a catch all that doesn't have other ones.
+
+Here's links to the other more specific packages: 
+
+https://github.com/Snowdrama/SnowdramaUnityTagSystem
+
+https://github.com/Snowdrama/SnowdramaUnityTimerTools
+
+https://github.com/Snowdrama/SnowdramaUnitySpringTools
+
+https://github.com/Snowdrama/SnowdramaUnityClassExtensions
+
+https://github.com/Snowdrama/SnowdramaUnityUIRouterTools
+
 
 # Requirements & Disclaimer
 In theory it works with earlier versions but I have tested against 2020.3.19f1(current LTS version) but I have it set to work with 2019.1 and over so there may be issues if you're using 2019. There is also a dependency on Addressables since I use Addressables in some of my things.  
