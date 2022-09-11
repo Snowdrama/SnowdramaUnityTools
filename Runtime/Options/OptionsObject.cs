@@ -7,161 +7,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "OptionsObject", menuName = "OptionsObject")]
 public class OptionsObject : ScriptableObject
 {
-    //[NonSerialized] private float _masterVolume = 1.0f;
-    //[EditorReadOnly] [SerializeField] private float _masterVolume_view;
-    //public float MasterVolume
-    //{
-    //    get { return _masterVolume; }
-    //    set
-    //    {
-    //        _masterVolume_view = value;
-    //        _masterVolume = value;
-    //        Save();
-    //    }
-    //}
-    //[NonSerialized] private float _musicVolume = 1.0f;
-    //[EditorReadOnly] [SerializeField] private float _musicVolume_view;
-    //public float MusicVolume
-    //{
-    //    get { return _musicVolume; }
-    //    set
-    //    {
-    //        _musicVolume_view = value;
-    //        _musicVolume = value;
-    //        Save();
-    //    }
-    //}
-    //[NonSerialized] private float _soundVolume = 1.0f;
-    //[EditorReadOnly] [SerializeField] private float _soundVolume_view;
-    //public float SoundVolume
-    //{
-    //    get { return _soundVolume; }
-    //    set
-    //    {
-    //        _soundVolume_view = value;
-    //        _soundVolume = value;
-    //        Save();
-    //    }
-    //}
-    //[NonSerialized] private float _voiceVolume = 1.0f;
-    //[EditorReadOnly] [SerializeField] private float _voiceVolume_view;
-    //public float VoiceVolume
-    //{
-    //    get { return _voiceVolume; }
-    //    set
-    //    {
-    //        _voiceVolume_view = value;
-    //        _voiceVolume = value;
-    //        Save();
-    //    }
-    //}
-
-    //[NonSerialized] private float _mouseSensitivityX = 0.5f;
-    //[EditorReadOnly] [SerializeField] private float _mouseSensitivityX_view;
-    //public float MouseSensitivityX
-    //{
-    //    get { return _mouseSensitivityX; }
-    //    set
-    //    {
-    //        _mouseSensitivityX_view = value;
-    //        _mouseSensitivityX = value;
-    //        Save();
-    //    }
-    //}
-    //[NonSerialized] private float _mouseSensitivityY = 0.5f;
-    //[EditorReadOnly] [SerializeField] private float _mouseSensitivityY_view;
-    //public float MouseSensitivityY
-    //{
-    //    get { return _mouseSensitivityY; }
-    //    set
-    //    {
-    //        _mouseSensitivityY_view = value;
-    //        _mouseSensitivityY = value;
-    //        Save();
-    //    }
-    //}
-
-    //[NonSerialized] private float _gamepadSensitivityX = 0.5f;
-    //[EditorReadOnly] [SerializeField] private float _gamepadSensitivityX_view;
-    //public float GamepadSensitivityX
-    //{
-    //    get { return _gamepadSensitivityX; }
-    //    set
-    //    {
-    //        _gamepadSensitivityX_view = value;
-    //        _gamepadSensitivityX = value;
-    //        Save();
-    //    }
-    //}
-    //[NonSerialized] private float _gamepadSensitivityY = 0.5f;
-    //[EditorReadOnly] [SerializeField] private float _gamepadSensitivityY_view;
-    //public float GamepadSensitivityY
-    //{
-    //    get { return _gamepadSensitivityY; }
-    //    set
-    //    {
-    //        _gamepadSensitivityY_view = value;
-    //        _gamepadSensitivityY = value;
-    //        Save();
-    //    }
-    //}
-
-    //[NonSerialized] private bool _toggleHeadbob = true;
-    //[EditorReadOnly] [SerializeField] private bool _toggleHeadbob_view;
-    //public bool ToggleHeadbob
-    //{
-    //    get { return _toggleHeadbob; }
-    //    set
-    //    {
-    //        _toggleHeadbob_view = value;
-    //        _toggleHeadbob = value;
-    //        Save();
-    //    }
-    //}
-
-    //[NonSerialized] private bool _invertYAxis = false;
-    //[EditorReadOnly] [SerializeField] private bool _invertYAxis_view;
-    //public bool InvertYAxis
-    //{
-    //    get { return _invertYAxis; }
-    //    set
-    //    {
-    //        _invertYAxis_view = value;
-    //        _invertYAxis = value;
-    //        Save();
-    //    }
-    //}
-
-    //[NonSerialized] private bool _invertXAxis = false;
-    //[EditorReadOnly] [SerializeField] private bool _invertXAxis_view;
-    //public bool InvertXAxis
-    //{
-    //    get { return _invertXAxis; }
-    //    set
-    //    {
-    //        _invertXAxis_view = value;
-    //        _invertXAxis = value;
-    //        Save();
-    //    }
-    //}
-
-
-    //[NonSerialized] private bool _toggleSeasickness = true;
-    //[EditorReadOnly][SerializeField] private bool _toggleSeasickness_view;
-    //public bool ToggleSeasickness
-    //{
-    //    get { return _toggleSeasickness; }
-    //    set
-    //    {
-    //        _toggleSeasickness_view = value;
-    //        _toggleSeasickness = value;
-    //        Save();
-    //    }
-    //}
-
-    public List<FloatOption> defaultFloats;
-    public List<IntOption> defaultInts;
-    public List<BoolOption> defaultBools;
+    public List<FloatOption> defaultFloats = new List<FloatOption>();
+    public List<IntOption> defaultInts = new List<IntOption>();
+    public List<BoolOption> defaultBools = new List<BoolOption>();
 
     public Dictionary<string, int> intValues;
     public Dictionary<string, float> floatValues;
@@ -183,29 +31,14 @@ public class OptionsObject : ScriptableObject
         {
             PlayerPrefs.SetInt(item.Key, (item.Value)? 1 : 0);
         }
-        //PlayerPrefs.SetFloat("MasterVolume", _masterVolume);
-        //PlayerPrefs.SetFloat("MusicVolume", _musicVolume);
-        //PlayerPrefs.SetFloat("SoundVolume", _soundVolume);
-        //PlayerPrefs.SetFloat("VoiceVolume", _voiceVolume);
-
-        //Debug.LogFormat("Mouse Senstivity X = {0}", _mouseSensitivityX);
-        //Debug.LogFormat("Mouse Senstivity Y = {0}", _mouseSensitivityY);
-        //PlayerPrefs.SetFloat("MouseSensitivityX", _mouseSensitivityX);
-        //PlayerPrefs.SetFloat("MouseSensitivityY", _mouseSensitivityY);
-
-        //PlayerPrefs.SetFloat("GamepadSensitivityX", _gamepadSensitivityX);
-        //PlayerPrefs.SetFloat("GamepadSensitivityY", _gamepadSensitivityY);
-
-        //PlayerPrefs.SetInt("InvertYAxis", (_invertYAxis) ? 1 : 0);
-        //PlayerPrefs.SetInt("InvertXAxis", (_invertXAxis) ? 1 : 0);
-
-        //PlayerPrefs.SetInt("ToggleSeasickness", (_toggleSeasickness) ? 1 : 0);
-        //PlayerPrefs.SetInt("ToggleHeadbob", (_toggleHeadbob) ? 1 : 0);
     }
 
     public void Load()
     {
-        Debug.Log("Loading Player Prefs");
+        if (intValues == null) { intValues = new Dictionary<string, int>(); }
+        if (floatValues == null) { floatValues = new Dictionary<string, float>(); }
+        if (boolValues == null) { boolValues = new Dictionary<string, bool>(); }
+
         foreach (var item in defaultInts)
         {
             var value = PlayerPrefs.GetInt(item.name, item.defaultValue);
@@ -243,18 +76,6 @@ public class OptionsObject : ScriptableObject
                 boolValues.Add(item.name, value);
             }
         }
-        //_masterVolume_view = _masterVolume = PlayerPrefs.GetFloat("MasterVolume", 1);
-        //_musicVolume_view = _musicVolume = PlayerPrefs.GetFloat("MusicVolume", 1);
-        //_soundVolume_view = _soundVolume = PlayerPrefs.GetFloat("SoundVolume", 1);
-        //_voiceVolume_view = _voiceVolume = PlayerPrefs.GetFloat("VoiceVolume", 1);
-        //_mouseSensitivityX_view = _mouseSensitivityX = PlayerPrefs.GetFloat("MouseSensitivityX", 0.5f);
-        //_mouseSensitivityY_view = _mouseSensitivityY = PlayerPrefs.GetFloat("MouseSensitivityY", 0.5f);
-        //_gamepadSensitivityX_view = _gamepadSensitivityX = PlayerPrefs.GetFloat("GamepadSensitivityX", 0.5f);
-        //_gamepadSensitivityY_view = _gamepadSensitivityY = PlayerPrefs.GetFloat("GamepadSensitivityY", 0.5f);
-        //_invertYAxis_view = _invertYAxis = PlayerPrefs.GetInt("InvertYAxis", 0) == 1 ? true : false;
-        //_invertXAxis_view = _invertXAxis = PlayerPrefs.GetInt("InvertXAxis", 0) == 1 ? true : false;
-        //_toggleSeasickness_view = _toggleSeasickness = PlayerPrefs.GetInt("ToggleSeasickness", 1) == 1 ? true : false;
-        //_toggleHeadbob_view = _toggleHeadbob = PlayerPrefs.GetInt("ToggleHeadbob", 1) == 1 ? true : false;
     }
 
     public void SetIntValue(string name, int value)
