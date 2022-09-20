@@ -15,6 +15,11 @@ public class OptionsObject : ScriptableObject
     public Dictionary<string, float> floatValues;
     public Dictionary<string, bool> boolValues;
 
+    [Header("Debug [Edits Do Nothing]")]
+    public List<FloatOption> debugFloats = new List<FloatOption>();
+    public List<IntOption> debugInts = new List<IntOption>();
+    public List<BoolOption> debugBools = new List<BoolOption>();
+
     public void Save()
     {
         Debug.Log("Saving Player Prefs");
@@ -29,8 +34,9 @@ public class OptionsObject : ScriptableObject
         }
         foreach (var item in boolValues)
         {
-            PlayerPrefs.SetInt(item.Key, (item.Value)? 1 : 0);
+            PlayerPrefs.SetInt(item.Key, (item.Value) ? 1 : 0);
         }
+        UpdateDebug();
     }
 
     public void Load()
@@ -67,7 +73,7 @@ public class OptionsObject : ScriptableObject
         {
             var defaultValue = (item.defaultValue) ? 1 : 0;
             var value = (PlayerPrefs.GetInt(item.name, defaultValue) == 1) ? true : false;
-            if(boolValues.ContainsKey(item.name))
+            if (boolValues.ContainsKey(item.name))
             {
                 boolValues[item.name] = value;
             }
@@ -76,6 +82,7 @@ public class OptionsObject : ScriptableObject
                 boolValues.Add(item.name, value);
             }
         }
+        UpdateDebug();
     }
 
     public void SetIntValue(string name, int value)
@@ -88,6 +95,7 @@ public class OptionsObject : ScriptableObject
         {
             intValues.Add(name, value);
         }
+        Save();
     }
 
     public int GetIntValue(string name, int defaultValue = 0)
@@ -112,6 +120,7 @@ public class OptionsObject : ScriptableObject
         {
             boolValues.Add(name, value);
         }
+        Save();
     }
 
     public bool GetBoolValue(string name, bool defaultValue = false)
@@ -136,6 +145,7 @@ public class OptionsObject : ScriptableObject
         {
             floatValues.Add(name, value);
         }
+        Save();
     }
 
     public float GetFloatValue(string name, float defaultValue = 0.0f)
@@ -153,7 +163,7 @@ public class OptionsObject : ScriptableObject
     [System.NonSerialized] bool initialized;
     public void OnEnable()
     {
-        if(!initialized)
+        if (!initialized)
         {
             Load();
         }
@@ -162,6 +172,43 @@ public class OptionsObject : ScriptableObject
     private void OnDisable()
     {
         Save();
+    }
+
+    public void UpdateDebug()
+    {
+        debugInts = new List<IntOption>();
+        foreach (var item in intValues)
+        {
+            var key = item.Key;
+            var value = item.Value;
+            debugInts.Add(new IntOption()
+            {
+                name = key,
+                defaultValue = value
+            });
+        }
+        debugFloats = new List<FloatOption>();
+        foreach (var item in floatValues)
+        {
+            var key = item.Key;
+            var value = item.Value;
+            debugFloats.Add(new FloatOption()
+            {
+                name = key,
+                defaultValue = value
+            });
+        }
+        debugBools = new List<BoolOption>();
+        foreach (var item in boolValues)
+        {
+            var key = item.Key;
+            var value = item.Value;
+            debugBools.Add(new BoolOption()
+            {
+                name = key,
+                defaultValue = value
+            });
+        }
     }
 }
 
