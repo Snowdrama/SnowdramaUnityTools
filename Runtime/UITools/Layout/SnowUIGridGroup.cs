@@ -40,6 +40,8 @@ public class SnowUIGridGroup : MonoBehaviour
     public GridMode gridMode;
     public GridMode_Columns columnMode;
     public GridMode_Rows rowMode;
+    [Header("Active Items")]
+    public bool useActive;
     [Header("Force Update")]
     public bool forceUpdate = false;
     [Header("Children")]
@@ -59,7 +61,17 @@ public class SnowUIGridGroup : MonoBehaviour
             children.Clear();
             foreach (Transform child in transform)
             {
-                children.Add(child.GetComponent<RectTransform>());
+                if (useActive)
+                {
+                    if (child.gameObject.activeSelf)
+                    {
+                        children.Add(child.GetComponent<RectTransform>());
+                    }
+                }
+                else
+                {
+                    children.Add(child.GetComponent<RectTransform>());
+                }
             }
             if (children.Count > 0)
             {

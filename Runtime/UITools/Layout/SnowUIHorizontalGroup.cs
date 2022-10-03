@@ -16,6 +16,8 @@ namespace Snowdrama.UI
         [Header("Gap")]
         public float gapX = 0.1f;
         public float gapY = 0.1f;
+        [Header("Active Items")]
+        public bool useActive;
         [Header("Force Update")]
         public bool forceUpdate = false;
         public List<RectTransform> children = new List<RectTransform>();
@@ -26,7 +28,17 @@ namespace Snowdrama.UI
                 children.Clear();
                 foreach (Transform child in transform)
                 {
-                    children.Add(child.GetComponent<RectTransform>());
+                    if (useActive)
+                    {
+                        if (child.gameObject.activeSelf)
+                        {
+                            children.Add(child.GetComponent<RectTransform>());
+                        }
+                    }
+                    else
+                    {
+                        children.Add(child.GetComponent<RectTransform>());
+                    }
                 }
                 if (children.Count > 0)
                 {
